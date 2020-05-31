@@ -11,6 +11,6 @@ RUN apt-get install -y gnupg \
 
 RUN pip install --upgrade setuptools wheel
 
-COPY requirements.txt ./
+COPY requirements/requirements.txt ./
 
 RUN pip install -r requirements.txt
