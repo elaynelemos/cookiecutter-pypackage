@@ -1,15 +1,15 @@
+FROM python:3.8-slim-buster
 
-FROM python:3.8-buster
-
-RUN apt-get clean && apt-get update --fix-missing \
+RUN apt-get clean && apt-get update \
 	&& apt-get upgrade -y \
-  && apt-get install -y apt-utils \
-    lsb-release \
-		locales-all \
-  	apt-transport-https
+  && apt-get install -y apt-utils
 
-RUN pip install --upgrade setuptools wheel pip
+RUN apt-get install -y gnupg \
+		zlibc \
+		software-properties-common \
+		locales-all
 
+RUN pip install --upgrade setuptools wheel
 
 COPY requirements.txt ./
 
