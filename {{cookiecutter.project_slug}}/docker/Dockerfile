@@ -1,0 +1,16 @@
+FROM python:3.8-slim-buster
+
+RUN apt-get clean && apt-get update \
+	&& apt-get upgrade -y \
+  && apt-get install -y apt-utils
+
+RUN apt-get install -y gnupg \
+		zlibc \
+		software-properties-common \
+		locales-all
+
+RUN pip install --upgrade setuptools wheel
+
+COPY requirements/requirements.txt ./
+
+RUN pip install -r requirements.txt

@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  {{ cookiecutter.project_slug }}_dev:
+    labels:
+      - Author="{{ cookiecutter.full_name }} <{{ cookiecutter.email }}>"
+    build:
+      context: .
+      dockerfile: docker/dockerfile.dev
+    environment:
+      - PATH=${PATH}:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
+      - LANG=en_US.UTF-8
+      - LANGUAGE=en_US.UTF-8
+      - LC_ALL=en_US.UTF-8
+      - DEBIAN_FRONTEND=noninteractive
+    expose:
+      - 80
+      - 443
+    working_dir: /home/{{ cookiecutter.project_slug }}/
+    volumes:
+      - ./{{ cookiecutter.project_slug }}/:/home/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}/
+      - ./tests/:/home/{{ cookiecutter.project_slug }}/tests/
+    command: python3 -m {{ cookiecutter.project_slug }}
+    stdin_open: true
