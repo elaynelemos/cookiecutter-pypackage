@@ -9,6 +9,7 @@
   "version": "0.1.0",
   "use_pytest": "n",
   "use_pypi_deployment_with_travis": "y",
+  "use_travis_for_testing": "y",
   "add_pyup_badge": "n",
   "command_line_interface": ["Click", "Argparse", "No command-line interface"],
   "create_author_file": "y",
