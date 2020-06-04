@@ -150,7 +150,7 @@ def test_bake_without_author_file(cookies):
         cookies,
         extra_context={'create_author_file': 'n'}
     ) as result:
-        found_toplevel_files = [f.basename for f in result.project.listdir()]
+        # found_toplevel_files = [f.basename for f in result.project.listdir()]
         doc_files = [f.basename for f in result.project.join('docs').listdir()]
         assert 'authors.md' not in doc_files
 
