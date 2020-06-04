@@ -5,7 +5,7 @@ services:
       - Author="{{ cookiecutter.full_name }} <{{ cookiecutter.email }}>"
     build:
       context: .
-      dockerfile: docker/dockerfile.dev
+      dockerfile: docker/dockerfile
     environment:
       - PATH=${PATH}:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
       - LANG=en_US.UTF-8
