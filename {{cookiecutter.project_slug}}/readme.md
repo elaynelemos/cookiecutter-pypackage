@@ -27,9 +27,6 @@ To run the production version of the project
 docker-compose up prod
 ```
 
-To run the jupyter environment of the project
-
-
 {% if cookiecutter.add_pyup_badge == 'y' %}
 [![PyUp](https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/shield.svg)](https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/)
 {% endif %}
