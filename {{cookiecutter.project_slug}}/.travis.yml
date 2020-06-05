@@ -15,7 +15,7 @@ script: tox
 
 {% if cookiecutter.use_pypi_deployment_with_travis == 'y' -%}
 # Assuming you have installed the travis-ci CLI tool, after you
-# create the Github repo and add it to Travis, run the
+# create the GitLab repo and add it to Travis, run the
 # following command to finish PyPI deployment setup:
 # $ travis encrypt --add deploy.password
 deploy:
@@ -26,6 +26,6 @@ deploy:
     secure: PLEASE_REPLACE_ME
   on:
     tags: true
-    repo: {{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
-    python: 3.8
+    repo: {{ cookiecutter.gitlab_username }}/{{ cookiecutter.project_slug }}
+    python: 3.6
 {%- endif %}
