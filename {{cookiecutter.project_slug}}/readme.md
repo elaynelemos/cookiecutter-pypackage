@@ -9,6 +9,26 @@
 
 {{ cookiecutter.project_short_description }}
 
+## Docker Quickstart
+
+This app can be run completely using `Docker` and `docker-compose`. **Using Docker is recommended, as it guarantees the application is run using compatible versions of Python**.
+
+There are three main services:
+
+To run the development environment of the project
+
+```bash
+docker-compose up dev
+```
+
+To run the production version of the project
+
+```bash
+docker-compose up prod
+```
+
+To run the jupyter environment of the project
+
 
 {% if cookiecutter.add_pyup_badge == 'y' %}
 [![PyUp](https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/shield.svg)](https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/)
