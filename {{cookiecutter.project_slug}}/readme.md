@@ -42,7 +42,7 @@ docker-compose up -d prod
 To run the {{ cookiecutter.project_slug }} module of the project
 
 ```bash
-docker-compose exec prod python3 -m {{ cookiecutter.project_slug }}
+docker-compose exec prod python -m {{ cookiecutter.project_slug }}
 ```
 
 ### Development
