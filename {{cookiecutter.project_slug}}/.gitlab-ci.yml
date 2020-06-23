@@ -81,7 +81,7 @@ clean:on-schedule:
     refs:
       - schedules
   cache:
-    key: $PYTEST_CACHE
+    key: $CACHE_KEY
     policy: push
     paths:
       - $CACHE_AT
