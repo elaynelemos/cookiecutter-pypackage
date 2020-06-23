@@ -47,7 +47,7 @@ def run_inside_dir(command, dirpath):
     :param dirpath: String, path of the directory the command is being run.
     """
     with inside_dir(dirpath):
-        return subprocess.check_call(shlex.split(command))
+        return subprocess.check_call(command, shell=True)
 
 
 def check_output_inside_dir(command, dirpath):
@@ -184,6 +184,7 @@ def test_using_pytest(cookies):
             'tests/test_python_boilerplate.py'
         )
         lines = test_file_path.readlines()
+        print(''.join(lines))
         assert "import pytest" in ''.join(lines)
         # Test the new pytest target
         run_inside_dir('python setup.py pytest', str(result.project)) == 0
