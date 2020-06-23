@@ -144,17 +144,6 @@ def test_bake_without_travis_pypi_setup(cookies):
         assert "python" == result_travis_config["language"]
         # found_toplevel_files = [f.basename for f in result.project.listdir()]
 
-
-def test_bake_without_author_file(cookies):
-    with bake_in_temp_dir(
-        cookies,
-        extra_context={'create_author_file': 'n'}
-    ) as result:
-        # found_toplevel_files = [f.basename for f in result.project.listdir()]
-        doc_files = [f.basename for f in result.project.join('docs').listdir()]
-        assert 'authors.md' not in doc_files
-
-
 def test_bake_selecting_license(cookies):
     license_strings = {
         'MIT license': 'MIT ',
