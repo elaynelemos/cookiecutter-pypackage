@@ -47,7 +47,7 @@ def run_inside_dir(command, dirpath):
     :param dirpath: String, path of the directory the command is being run.
     """
     with inside_dir(dirpath):
-        return subprocess.check_call(shlex.split(command))
+        return subprocess.check_call(command, shell=True)
 
 
 def check_output_inside_dir(command, dirpath):
@@ -144,17 +144,6 @@ def test_bake_without_travis_pypi_setup(cookies):
         assert "python" == result_travis_config["language"]
         # found_toplevel_files = [f.basename for f in result.project.listdir()]
 
-
-def test_bake_without_author_file(cookies):
-    with bake_in_temp_dir(
-        cookies,
-        extra_context={'create_author_file': 'n'}
-    ) as result:
-        # found_toplevel_files = [f.basename for f in result.project.listdir()]
-        doc_files = [f.basename for f in result.project.join('docs').listdir()]
-        assert 'authors.md' not in doc_files
-
-
 def test_bake_selecting_license(cookies):
     license_strings = {
         'MIT license': 'MIT ',
@@ -195,6 +184,7 @@ def test_using_pytest(cookies):
             'tests/test_python_boilerplate.py'
         )
         lines = test_file_path.readlines()
+        print(''.join(lines))
         assert "import pytest" in ''.join(lines)
         # Test the new pytest target
         run_inside_dir('python setup.py pytest', str(result.project)) == 0
